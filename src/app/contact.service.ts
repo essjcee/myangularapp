@@ -15,8 +15,9 @@ export class ContactService {
       'Content-Type':'application/json; charset=utf-8'
     })
   };
+
   constructor(private http: HttpClient) {
-    this.myApiUrl = "https://v1demoapp.azurewebsites.net/api/ContactsAPI";
+    this.myApiUrl = "https://v1demoapp.azurewebsites.net/api/ContactsAPI/";
    }
 
   getContacts(): Observable<Contact[]> {
