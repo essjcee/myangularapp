@@ -1,0 +1,31 @@
+<h1>Contacts</h1>
+
+<p *ngIf="!(contacts$ | async)"><em>Loading...</em></p>
+<p>
+  <a [routerLink]="['/add']" class="btn btn-primary float-right mb-3">New Contact</a>
+</p>
+
+<table class="table table-sm table-hover" *ngIf="(contacts$ | async)?.length>0">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>email</th>
+      <th>phone</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let contact of (contacts$ | async)">
+      <td>{{ contact.id }}</td>
+      <td><a [routerLink]="['/contact/', contact.id]">{{ contact.firstName }}</a></td>
+      <td>{{ contact.lastName }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ contact.phone }}</td>
+      <td><a [routerLink]="['/contact/edit/', contact.id]" class="btn btn-primary btn-sm float-right">Edit</a></td>
+      <td><a [routerLink]="" (click)="delete(contact.id)" class="btn btn-danger btn-sm float-right">Delete</a></td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,6 @@
+<ng-container *ngIf="(contact$ | async) as contact; else loading">
+    <h1 style="color:chocolate">{{ contact.firstName }} {{ contact.lastName}}</h1>
+    <h2>{{ contact.email }}</h2>
+    <h2>{{ contact.phone }}</h2>
+</ng-container>
+<ng-template #loading>Loading…</ng-template>
