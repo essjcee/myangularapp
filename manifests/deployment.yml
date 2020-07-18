@@ -1,0 +1,16 @@
+apiVersion : apps/v1beta1
+kind: Deployment
+metadata:
+  name: demoangularimage 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: demoangularimage 
+    spec:
+      containers:
+        - name: demoangularimage 
+          image: jccontainerreg.azurecr.io/demoangularimage
+          ports:
+          - containerPort: 80
