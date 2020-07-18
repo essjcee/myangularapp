@@ -1,9 +1,14 @@
-apiVersion : apps/v1beta1
+apiVersion : apps/v1
 kind: Deployment
 metadata:
-  name: demoangularimage 
+  name: demoangularimage
+  labels:
+    app: demoangularimage
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: demoangularimage
   template:
     metadata:
       labels:
